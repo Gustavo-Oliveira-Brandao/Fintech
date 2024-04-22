@@ -1,0 +1,17 @@
+
+
+#botao{
+  background: url("../../../../../assets/icones/Icon_Search_2px_Line.svg"), #39383c;
+  border: 1px solid #39383c;
+  border-radius: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#botao:hover{
+  cursor: pointer;
+  background-color: #343434;
+  border-color: #343434;
+}

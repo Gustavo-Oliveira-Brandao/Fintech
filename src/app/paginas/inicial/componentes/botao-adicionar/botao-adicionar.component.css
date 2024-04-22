@@ -1,0 +1,14 @@
+#botao-adicionar{
+  border: 1px solid #39383c;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #39383c;
+  box-sizing: border-box;
+}
+
+#botao-adicionar:hover{
+  cursor: pointer;
+  background-color: #343434;
+  border-color: #343434;
+}

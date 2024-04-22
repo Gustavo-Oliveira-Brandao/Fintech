@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+
+@media (min-width: 576px){
+
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 992px){
+
+}
+
+@media (min-width: 1200px){
+
+}
+
+@media (min-width: 1400px){
+
+}
+
+header{
+  background-color: #1E1F1F;
+  height: 3rem;
+  background-size: cover;
+  text-align: center;
+}
+
+body{
+  background-color: #1E1F1F;
+  height: 667px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.fonte-regular{
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15pt;
+}
+
+.fonte-bold{
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25pt;
+}
+
+.borda-cards{
+  border: #363943 solid 1px;
+  border-radius: 4px;
+}
+
+.valor-cards{
+  margin-left: auto;
+  margin-right: auto;
+  width: 18rem;
+  height: 7.2rem;
+  margin-top: 2rem;
+  background-color: #29292e;
+  padding-top: 0.7rem;
+  box-sizing: border-box;
+}
+
+hr{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15rem;
+  display: flex;
+  align-self: center;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}
