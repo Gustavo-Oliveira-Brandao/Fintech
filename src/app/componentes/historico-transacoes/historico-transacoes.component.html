@@ -1,3 +1,14 @@
-<div class="cor-primaria card">
+<div class="carteiras">
+    <h2>Suas carteiras</h2>
+    @switch (carteira) {
+    @case (1) {
+    <app-carteira class="carteira" logo="visa" objetivoCarteira="Dinheiro de lazer" valor="3500,00" />
+    }
+    @case (2){
+    <app-carteira class="carteira" logo="mastercard" objetivoCarteira="Salario" valor="2300,00" />
+    }
+    }
+</div>
+<div class="card">
     <h2>Transações</h2>
 </div>

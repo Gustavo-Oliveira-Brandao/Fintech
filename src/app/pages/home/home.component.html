@@ -1,0 +1,12 @@
+<h1 style="color: #fff; margin-bottom: 1.5rem;">Bem vindo de volta, {{usuario.info.nome}}!</h1>
+<app-saldo />
+<div class="carteiras">
+    <app-carteira class="carteira" logo="visa" objetivoCarteira="Dinheiro de lazer" valor="3500,00" />
+    <app-carteira class="carteira" logo="mastercard" objetivoCarteira="Salario" valor="2300,00" />
+    <app-carteira class="carteira" logo="mastercard" objetivoCarteira="Reserva de emergência" valor="1000,00" />
+</div>
+<div class="botoes">
+    <app-botao-aba routerLink="transacoes" routerLinkActive="active" logo="transacoes" texto="Transações" />
+    <app-botao-aba routerLink="metas" routerLinkActive="active" logo="metas" texto="Metas" />
+    <app-botao-aba routerLink="investimentos" routerLinkActive="active" logo="investimentos" texto="Investimentos" />
+</div>

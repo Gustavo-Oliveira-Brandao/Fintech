@@ -1,4 +1,9 @@
 <div class="cor-primaria card">
     <p class="titulo-card">Saldo</p>
+    @if(saldo > 0){
     <p class="valor">R$ {{saldo}}</p>
+    }
+    @if(saldo <= 0){
+        <p class="valor">Sem saldo</p>
+    }
 </div>

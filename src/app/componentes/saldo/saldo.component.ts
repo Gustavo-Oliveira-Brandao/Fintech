@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 })
 export class SaldoComponent {
 
-  saldo:number = 0;
+  saldo:number = 500;
 }
