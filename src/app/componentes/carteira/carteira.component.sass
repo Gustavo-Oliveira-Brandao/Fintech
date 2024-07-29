@@ -1,27 +1,43 @@
-.carteira
-    width: 13rem
-    height: 6.875rem
-    flex-shrink: 0
-    border-radius: 1.25rem
-    padding-left: 1rem
-    background: linear-gradient(270deg, #878787 0%, #EAEAEA 100%)
+.carteiras
+    display: flex
+    overflow-y: auto
+    margin-top: 1.5rem
+    padding-right: 1rem
 
-    img
-        width: 2.98963rem
-        height: 2.98963rem
+    .criar
+        display: flex
+        align-items: center
+        justify-content: center
+        padding-left: 0 !important
+
+        p
+            margin-left: 1rem
+
+    .carteira
+        width: 13rem
+        height: 6.875rem
         flex-shrink: 0
+        border-radius: 1.25rem
+        padding-left: 1rem
+        background: linear-gradient(270deg, #878787 0%, #EAEAEA 100%)
+        margin-left: 1.5rem
+        cursor: pointer
 
-    .objetivo
-        color: #272A32
-        font-family: Poppins
-        font-size: 0.625rem
-        font-style: normal
-        font-weight: 400
-        line-height: normal
+        img
+            width: 2.98963rem
+            height: 2.98963rem
+            flex-shrink: 0
 
-    .valor
-        color: #272A32
-        font-size: 1rem
-        font-style: normal
-        font-weight: 700
-        line-height: normal
+        .objetivo
+            color: #272A32
+            font-size: 0.625rem
+            font-style: normal
+            font-weight: 400
+            line-height: normal
+
+        .valor
+            color: #272A32
+            font-size: 1rem
+            font-style: normal
+            font-weight: 700
+            line-height: normal

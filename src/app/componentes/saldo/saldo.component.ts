@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from '../../shared/servicos/usuario.service';
 
 @Component({
   selector: 'app-saldo',
@@ -9,5 +10,6 @@ import { Component } from '@angular/core';
 })
 export class SaldoComponent {
 
-  saldo:number = 500;
+  constructor(protected usuario:UsuarioService){}
+
 }

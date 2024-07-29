@@ -8,6 +8,12 @@
     bottom: 0
     padding-top: 1rem
 
+.top
+    i
+        position: absolute
+        left: 2rem
+        top: 2.3rem
+
 h2
     color: #FFF
     font-size: 0.875rem
@@ -17,9 +23,43 @@ h2
     line-height: normal
     text-align: center
 
-.carteiras
-    width: 13rem
+.transacao
+    display: flex
+    width: 18.75rem
+    height: 1.875rem
+    flex-shrink: 0
+    justify-content: space-between
+    align-items: center
     margin-left: auto
     margin-right: auto
-    .carteira
-        background: linear-gradient(270deg, #878787 0%, #EAEAEA 100%)
+    margin-bottom: 1.5rem
+
+    .transacao-esquerda
+        display: flex
+        align-items: center
+
+        i
+            margin-right: 1rem
+
+        .transacao-info
+
+            .nome
+                color: #FFF
+                font-size: 0.75rem
+                font-style: normal
+                font-weight: 700
+                line-height: normal
+
+            .categoria
+                color: #6B6B6B
+                font-size: 0.75rem
+                font-style: normal
+                font-weight: 400
+                line-height: normal
+
+    .transacao-direita
+        p
+            font-size: 0.75rem
+            font-style: normal
+            font-weight: 700
+            line-height: normal

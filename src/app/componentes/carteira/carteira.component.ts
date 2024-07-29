@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UsuarioService } from '../../shared/servicos/usuario.service';
 
 @Component({
   selector: 'app-carteira',
@@ -9,7 +10,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CarteiraComponent {
 
-  @Input() public logo:any
-  @Input() public objetivoCarteira:any
-  @Input() public valor:any
+  constructor(protected usuario:UsuarioService){}
+
+
 }

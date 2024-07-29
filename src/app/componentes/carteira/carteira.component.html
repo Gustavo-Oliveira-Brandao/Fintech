@@ -1,5 +1,15 @@
-<div class="carteira">
-    <img src="assets/{{logo}}.svg" />
-    <p class="objetivo">{{objetivoCarteira}}</p>
-    <p class="valor">R$ {{valor}}</p>
+<div class="carteiras">
+    @for(carteira of usuario.info.carteiras; track $index){
+    <div class="carteira">
+        <img src="assets/{{carteira.logo}}.svg" />
+        <p class="objetivo">{{carteira.objetivo}}</p>
+        <p class="valor">{{usuario.Real.format(carteira.valor)}}</p>
+    </div>
+    }
+    @empty {
+        <div class="carteira criar">
+            <i class="fa-solid fa-plus fa-xl"></i>
+            <p>Criar carteira</p>
+        </div>
+    }
 </div>
