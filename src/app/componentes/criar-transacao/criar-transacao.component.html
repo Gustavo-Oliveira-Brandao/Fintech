@@ -1,0 +1,36 @@
+<div class="modal">
+    <h2>Criar transação</h2>
+    <i (click)="modal.abrirCriarTransacao()" class="fechar fa-solid fa-x" style="color: #ffffff;"></i>
+    <form (submit)="enviarTransacao($event)">
+        <div class="form-campo">
+            <label for="nome-transacao">Nome: </label>
+            <input #nomeTransacao name="nome-transacao" placeholder="Ração para gato" />
+        </div>
+        <div class="form-campo">
+            <label for="categoria-transacao">Categoria: </label>
+            <input #categoriaTransacao name="categoria-transacao" placeholder="Pets" />
+        </div>
+        <div class="form-campo">
+            <label for="data-transacao">Data: </label>
+            <input #dataTransacao type="date" name="data-transacao" />
+        </div>
+        <div class="form-campo">
+            <label for="valor-transacao">Valor: </label>
+            <input #valorTransacao style="width: 4.5rem;" type="number" min="1" step="any" name="valor-transacao"
+                placeholder="R$ 40,00" />
+        </div>
+        <div class="form-campos-radio">
+            <div class="form-campo">
+                <input #despesaTransacao type="radio" id="despesa-transacao" name="tipo-transacao" />
+                <label for="despesa-transacao">Despesa</label>
+            </div>
+            <div class="form-campo">
+                <input #receitaTransacao type="radio" id="receita-transacao" name="tipo-transacao" />
+                <label for="receita-transacao">Receita</label>
+            </div>
+        </div>
+        <div class="botao-confirmar">
+            <button>Confirmar</button>
+        </div>
+    </form>
+</div>

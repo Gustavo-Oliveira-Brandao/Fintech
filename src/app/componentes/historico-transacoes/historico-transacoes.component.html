@@ -1,33 +1,54 @@
-<div class="top">
-    <i routerLink="" routerLinkActive="active" class="fa-solid fa-arrow-left fa-lg"
-        style="color: #ffffff; cursor: pointer;"></i>
-    <h2>Suas carteiras</h2>
-    <app-carteira />
-</div>
-<div class="card">
-    <h2>Transações</h2>
-    @for(transacao of usuario.info.transacoes; track $index){
-    <div class="transacao">
-        <div class="transacao-esquerda">
-            @if(transacao.ehDespesa){
-            <i class="fa-solid fa-arrow-down" style="color: #F75A68;"></i>
-            }
-            @if(!transacao.ehDespesa){
-            <i class="fa-solid fa-arrow-up" style="color: #28B446;"></i>
-            }
-            <div class="transacao-info">
-                <p class="nome">{{transacao.nome}}</p>
-                <p class="categoria">{{transacao.categoria}}</p>
+<div id="historico-transacoes">
+    <div class="top">
+        <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+            <i routerLink="" routerLinkActive="active" class="fa-solid fa-arrow-left fa-lg"
+                style="color: #ffffff; cursor: pointer;"></i>
+            <h2 style="margin-left: 1rem;">Suas carteiras</h2>
+        </div>
+        <app-carteira />
+    </div>
+    <div class="historico">
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; width: 90vw; margin-left: auto; margin-right: auto;">
+            <h2>Transações</h2>
+            <div (click)="modal.abrirCriarTransacao()"
+                style="display: flex; justify-content: space-around; align-items: center;">
+                <i id="adicionar" class="fa-solid fa-plus" style="color: #ffffff; margin-right: 0.5rem;"></i>
+                <p style="color: #fff; font-size: 14px;"></p>
             </div>
         </div>
-        <div class="transacao-direita">
-            @if(transacao.ehDespesa){
-            <p style="color: #F75A68;">- {{usuario.Real.format(transacao.valor)}}</p>
-            }
-            @if(!transacao.ehDespesa){
-            <p style="color: #28B446;">+ {{usuario.Real.format(transacao.valor)}}</p>
-            }
+        @for(data of usuario.datasTransacoesAgrupadas; track $index){
+        <p class="data">{{data | date : 'dd/MM/yyyy' }}</p>
+        @for(transacao of usuario.info.transacoes; track $index){
+        @if(data == transacao.data){
+        <div class="transacao">
+            <div class="transacao-esquerda">
+                @if(transacao.ehDespesa){
+                <i class="fa-solid fa-arrow-down" style="color: #F75A68;"></i>
+                }
+                @if(!transacao.ehDespesa){
+                <i class="fa-solid fa-arrow-up" style="color: #28B446;"></i>
+                }
+                <div class="transacao-info">
+                    <p class="nome">{{transacao.nome}}</p>
+                    <p class="categoria">{{transacao.categoria}}</p>
+                </div>
+            </div>
+            <div class="transacao-direita">
+                @if(transacao.ehDespesa){
+                <p style="color: #F75A68;">- {{usuario.Real.format(transacao.valor)}}</p>
+                }
+                @if(!transacao.ehDespesa){
+                <p style="color: #28B446;">+ {{usuario.Real.format(transacao.valor)}}</p>
+                }
+            </div>
         </div>
+        }
+        }
+        }
     </div>
-    }
 </div>
+
+@if(modal.criarTransacaoEstaAberto){
+<app-criar-transacao />
+}

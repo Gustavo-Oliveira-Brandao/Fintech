@@ -11,13 +11,16 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0
     padding: 0
     border: 0
-    font-family: "Poppins", sans-serif !important
     font-size: 100%
     font: inherit
     vertical-align: baseline
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     text-size-adjust: none
+
+h1, h2, h3, h4, h5, h6, p, button, input, label
+    font-family: "Poppins", sans-serif !important
+    color: #fff
 
 footer, header, nav, section, main
     display: block
@@ -35,10 +38,6 @@ table
     border-collapse: collapse
     border-spacing: 0
 
-input
-    -webkit-appearance: none
-    border-radius: 0
-
 html
     height: 100vh
     width: 100vw
@@ -53,3 +52,61 @@ body
 
 ::-webkit-scrollbar
     display: none
+
+.blur
+    filter: opacity(0.3)
+
+.modal
+    display: flex
+    flex-direction: column
+    border-radius: 20px
+    background: #272A32
+    padding: 1rem
+    top: 50%
+    left: 50%
+    width: 90vw
+    position: absolute
+    transform: translate(-50%, -50%)
+
+    h2
+        text-align: center
+
+    .fechar
+        position: absolute
+        right: 1rem
+        top: 1rem
+
+    form
+        .form-campo
+            margin-top: 1.5rem
+            display: flex
+            align-items: center
+            label, input
+                background-color: transparent
+                border: none
+
+            input
+                margin-left: 0.5rem
+                border-bottom: 1px solid gray
+
+            ::-webkit-calendar-picker-indicator
+                filter: invert(1)
+
+        .form-campos-radio
+            .form-campo
+                input
+                    margin-left: 0
+                label
+                    margin-left: 0.5rem
+
+        .botao-confirmar
+            margin-top: 1rem
+            display: flex
+            justify-content: center
+            button
+                background-color: #28B446
+                border: none
+                border-radius: 10px
+                padding: 8px
+                width: 8rem
+                height: 3rem
