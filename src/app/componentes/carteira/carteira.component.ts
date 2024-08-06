@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { UsuarioService } from '../../shared/servicos/usuario.service';
+import { ControleModalService } from '../../shared/servicos/controle-modal.service';
 
 @Component({
   selector: 'app-carteira',
@@ -10,7 +11,7 @@ import { UsuarioService } from '../../shared/servicos/usuario.service';
 })
 export class CarteiraComponent {
 
-  constructor(protected usuario:UsuarioService){}
+  constructor(protected usuario:UsuarioService, protected modal:ControleModalService){}
 
 
 }

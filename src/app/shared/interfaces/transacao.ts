@@ -4,7 +4,6 @@ export interface Transacao {
     categoria: string,
     data: string,
     valor: number,
-    ehDespesa: boolean,
-    ehReceita: boolean
+    tipo: string
 
 }

@@ -1,3 +1,27 @@
 <div class="modal">
-    
+    <h2>Criar carteira</h2>
+    <i (click)="modal.abrirCriarCarteira()" class="fechar fa-solid fa-x" style="color: #ffffff;"></i>
+    <form (submit)="enviarCarteira($event)">
+        <div class="form-campo">
+            <label for="objetivoCarteira">Objetivo da carteira: </label>
+            <input required id="objetivoCarteira" name="objetivoCarteira" placeholder="Dinheiro de lazer" [(ngModel)]="carteira.objetivo" />
+        </div>
+        <div class="form-campo">
+            <label for="tipoCarteira">Tipo de carteira: </label>
+            <select required id="tipoCarteira" name="tipoCarteira" [(ngModel)]="carteira.tipo" >
+                <option *ngFor="let tipo of tipos">{{tipo}}</option>
+            </select>
+        </div>
+        @if(carteira.tipo == 'Cartão de crédito' || carteira.tipo == 'Cartão de débito'){
+        <div class="form-campo">
+            <label for="bandeiraCartao">Bandeira do cartão: </label>
+            <select required id="bandeiraCartao" name="bandeiraCartao" [(ngModel)]="carteira.bandeira">
+                <option *ngFor="let bandeira of bandeiras">{{bandeira}}</option>
+            </select>
+        </div>
+        }
+        <div class="botao-confirmar">
+            <button type="submit">Confirmar</button>
+        </div>
+    </form>
 </div>

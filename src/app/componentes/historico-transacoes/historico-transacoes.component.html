@@ -9,12 +9,11 @@
     </div>
     <div class="historico">
         <div
-            style="display: flex; justify-content: space-between; align-items: center; width: 90vw; margin-left: auto; margin-right: auto;">
+            style="display: flex; justify-content: space-between; align-items: center; width: 90vw; margin-left: auto; margin-right: auto; margin-bottom: 1.5rem;">
             <h2>Transações</h2>
             <div (click)="modal.abrirCriarTransacao()"
                 style="display: flex; justify-content: space-around; align-items: center;">
                 <i id="adicionar" class="fa-solid fa-plus" style="color: #ffffff; margin-right: 0.5rem;"></i>
-                <p style="color: #fff; font-size: 14px;"></p>
             </div>
         </div>
         @for(data of usuario.datasTransacoesAgrupadas; track $index){
@@ -23,10 +22,10 @@
         @if(data == transacao.data){
         <div class="transacao">
             <div class="transacao-esquerda">
-                @if(transacao.ehDespesa){
+                @if(transacao.tipo == 'Despesa'){
                 <i class="fa-solid fa-arrow-down" style="color: #F75A68;"></i>
                 }
-                @if(!transacao.ehDespesa){
+                @if(transacao.tipo == 'Receita'){
                 <i class="fa-solid fa-arrow-up" style="color: #28B446;"></i>
                 }
                 <div class="transacao-info">
@@ -35,10 +34,10 @@
                 </div>
             </div>
             <div class="transacao-direita">
-                @if(transacao.ehDespesa){
+                @if(transacao.tipo == 'Despesa'){
                 <p style="color: #F75A68;">- {{usuario.Real.format(transacao.valor)}}</p>
                 }
-                @if(!transacao.ehDespesa){
+                @if(transacao.tipo == 'Receita'){
                 <p style="color: #28B446;">+ {{usuario.Real.format(transacao.valor)}}</p>
                 }
             </div>
@@ -51,4 +50,8 @@
 
 @if(modal.criarTransacaoEstaAberto){
 <app-criar-transacao />
+}
+
+@if(modal.criarCarteiraEstaAberto){
+    <app-criar-carteira />
 }

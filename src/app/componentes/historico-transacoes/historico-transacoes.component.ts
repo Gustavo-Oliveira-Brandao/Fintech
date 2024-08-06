@@ -5,11 +5,12 @@ import { UsuarioService } from '../../shared/servicos/usuario.service';
 import { DatePipe } from '@angular/common';
 import { CriarTransacaoComponent } from "../criar-transacao/criar-transacao.component";
 import { ControleModalService } from '../../shared/servicos/controle-modal.service';
+import { CriarCarteiraComponent } from "../criar-carteira/criar-carteira.component";
 
 @Component({
   selector: 'app-historico-transacoes',
   standalone: true,
-  imports: [CarteiraComponent, RouterLink, RouterLinkActive, DatePipe, CriarTransacaoComponent],
+  imports: [CarteiraComponent, RouterLink, RouterLinkActive, DatePipe, CriarTransacaoComponent, CriarCarteiraComponent],
   templateUrl: './historico-transacoes.component.html',
   styleUrl: './historico-transacoes.component.sass'
 })

@@ -1,13 +1,13 @@
 <div class="carteiras">
     @for(carteira of usuario.info.carteiras; track $index){
-    <div class="carteira">
-        <img src="assets/{{carteira.logo}}.svg" />
+    <div class="carteira" style="margin-left: 1.5rem;">
+        <img src="assets/{{carteira.bandeira}}.svg" />
         <p class="objetivo">{{carteira.objetivo}}</p>
         <p class="valor">{{usuario.Real.format(carteira.valor)}}</p>
     </div>
     }
     @empty {
-        <div (click)="usuario.agruparTransacoes()" class="carteira criar">
+        <div (click)="modal.abrirCriarCarteira()" class="carteira criar">
             <i class="fa-solid fa-plus fa-xl"></i>
             <p>Criar carteira</p>
         </div>
