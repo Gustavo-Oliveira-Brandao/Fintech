@@ -1,15 +1,13 @@
-<div class="carteiras">
+<div class="carteiras" style="margin-left: 1rem;">
     @for(carteira of usuario.info.carteiras; track $index){
-    <div class="carteira" style="margin-left: 1.5rem;">
+    <div class="carteira" style="margin-right: 1.5rem;">
         <img src="assets/{{carteira.bandeira}}.svg" />
         <p class="objetivo">{{carteira.objetivo}}</p>
         <p class="valor">{{usuario.Real.format(carteira.valor)}}</p>
     </div>
     }
-    @empty {
-        <div (click)="modal.abrirCriarCarteira()" class="carteira criar">
-            <i class="fa-solid fa-plus fa-xl"></i>
-            <p>Criar carteira</p>
-        </div>
-    }
+    <div (click)="modal.abrirCriarCarteira()" class="carteira criar">
+        <i class="fa-solid fa-plus fa-xl"></i>
+        <p>Criar carteira</p>
+    </div>
 </div>

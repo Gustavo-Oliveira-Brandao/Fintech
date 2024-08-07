@@ -37,12 +37,25 @@ export class UsuarioService {
     })
   }
 
-  adicionarTransacao = (transacao:Transacao) => {
+  adicionarTransacao = (transacao: Transacao) => {
     this.info.transacoes.push(transacao)
     this.agruparTransacoes()
+
+    console.log(transacao)
+    for (let carteira of this.info.carteiras) {
+      if (carteira.objetivo == transacao.carteira) {
+        if (transacao.tipo == 'Receita') {
+          carteira.valor += transacao.valor
+        }
+        if (transacao.tipo == 'Despesa') {
+          carteira.valor -= transacao.valor
+        }
+      }
+    }
   }
 
-  criarCarteira = (carteira:Carteira) => {
+  criarCarteira = (carteira: Carteira) => {
+    carteira.valor = 0
     this.info.carteiras.push(carteira)
   }
 

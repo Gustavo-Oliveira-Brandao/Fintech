@@ -1,23 +1,34 @@
 <div class="modal">
     <h2>Criar carteira</h2>
     <i (click)="modal.abrirCriarCarteira()" class="fechar fa-solid fa-x" style="color: #ffffff;"></i>
-    <form (submit)="enviarCarteira($event)">
-        <div class="form-campo">
+    <form (submit)="enviarCarteira($event)" [formGroup]="carteiraForm" #formDir="ngForm">
+        <div class="form-group">
             <label for="objetivoCarteira">Objetivo da carteira: </label>
-            <input required id="objetivoCarteira" name="objetivoCarteira" placeholder="Dinheiro de lazer" [(ngModel)]="carteira.objetivo" />
+            <input required id="objetivoCarteira" name="objetivoCarteira" placeholder="Dinheiro de lazer"
+                formControlName="objetivo" />
+            <div *ngIf="objetivo.invalid && formDir.submitted" class="erro-validacao">
+                <p>Objetivo é obrigatório!</p>
+            </div>
         </div>
-        <div class="form-campo">
+
+        <div class="form-group">
             <label for="tipoCarteira">Tipo de carteira: </label>
-            <select required id="tipoCarteira" name="tipoCarteira" [(ngModel)]="carteira.tipo" >
-                <option *ngFor="let tipo of tipos">{{tipo}}</option>
+            <select required id="tipoCarteira" name="tipoCarteira" formControlName="tipo">
+                <option *ngFor="let tipo of tipos" [value]="tipo">{{tipo}}</option>
             </select>
+            <div *ngIf="tipo.invalid && formDir.submitted" class="erro-validacao">
+                <p>Tipo é obrigatório!</p>
+            </div>
         </div>
-        @if(carteira.tipo == 'Cartão de crédito' || carteira.tipo == 'Cartão de débito'){
-        <div class="form-campo">
+        @if(carteiraForm.value.tipo == 'Cartão de crédito' || carteiraForm.value.tipo == 'Cartão de débito'){
+        <div class="form-group">
             <label for="bandeiraCartao">Bandeira do cartão: </label>
-            <select required id="bandeiraCartao" name="bandeiraCartao" [(ngModel)]="carteira.bandeira">
-                <option *ngFor="let bandeira of bandeiras">{{bandeira}}</option>
+            <select required id="bandeiraCartao" name="bandeiraCartao" formControlName="bandeira">
+                <option *ngFor="let bandeira of bandeiras" [value]="bandeira">{{bandeira}}</option>
             </select>
+            <div *ngIf="bandeira.invalid && formDir.submitted" class="erro-validacao">
+                <p>Bandeira é obrigatório!</p>
+            </div>
         </div>
         }
         <div class="botao-confirmar">
