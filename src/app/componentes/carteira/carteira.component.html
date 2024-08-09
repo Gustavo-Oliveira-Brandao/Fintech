@@ -6,8 +6,10 @@
         <p class="valor">{{usuario.Real.format(carteira.valor)}}</p>
     </div>
     }
+    @if(criarEstaDisponivel){
     <div (click)="modal.abrirCriarCarteira()" class="carteira criar">
         <i class="fa-solid fa-plus fa-xl"></i>
         <p>Criar carteira</p>
     </div>
+}
 </div>

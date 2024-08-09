@@ -41,14 +41,15 @@ export class UsuarioService {
     this.info.transacoes.push(transacao)
     this.agruparTransacoes()
 
-    console.log(transacao)
     for (let carteira of this.info.carteiras) {
       if (carteira.objetivo == transacao.carteira) {
         if (transacao.tipo == 'Receita') {
           carteira.valor += transacao.valor
+          this.info.saldo += transacao.valor
         }
         if (transacao.tipo == 'Despesa') {
           carteira.valor -= transacao.valor
+          this.info.saldo -= transacao.valor
         }
       }
     }

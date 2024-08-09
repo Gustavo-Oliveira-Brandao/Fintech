@@ -13,5 +13,6 @@ export class CarteiraComponent {
 
   constructor(protected usuario:UsuarioService, protected modal:ControleModalService){}
 
+  @Input() criarEstaDisponivel!:boolean
 
 }
