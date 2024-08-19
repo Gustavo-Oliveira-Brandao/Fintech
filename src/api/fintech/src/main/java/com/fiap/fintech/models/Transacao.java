@@ -1,31 +1,52 @@
 package com.fiap.fintech.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
 @Entity
+@SQLDelete(sql = "UPDATE Transacao SET status = 'INATIVO' WHERE id = ?")
 public class Transacao {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Column(nullable = false)
+  @NotBlank
+  @NotNull
+  @Length(max = 100)
+  @Column(nullable = false, length = 100)
   private String nome;
 
-  @Column(nullable = false)
+  @NotBlank
+  @NotNull
+  @Length(max = 50)
+  @Column(nullable = false, length = 50)
   private String categoria;
 
+  @NotBlank
+  @NotNull
   @Column(nullable = false)
   private Long idCarteira;
 
+  @NotBlank
+  @NotNull
   @Column(nullable = false)
   private Double saldo;
 
-  @Column(nullable = false)
+  @NotBlank
+  @NotNull
+  @Length(max = 50)
+  @Column(nullable = false, length = 50)
   private String tipo;
 
+  @NotBlank
+  @NotNull
   @Column(nullable = false)
   private Date dtCriadoEm;
 
@@ -34,6 +55,13 @@ public class Transacao {
 
   @Column
   private Date dtDeletadoEm;
+
+  @NotNull
+  @Length(max = 10)
+  @Pattern(regexp = "ATIVO|INATIVO")
+  @Column(nullable = false, length = 10)
+  private String status = "ATIVO";
+
 
   public Transacao(){}
   public Transacao(String nome, String categoria, Long idCarteira, Double saldo, String tipo) {
@@ -115,5 +143,13 @@ public class Transacao {
 
   public void setDtDeletadoEm(Date dtDeletadoEm) {
     this.dtDeletadoEm = dtDeletadoEm;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 }

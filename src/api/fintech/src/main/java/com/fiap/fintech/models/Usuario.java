@@ -1,28 +1,47 @@
 package com.fiap.fintech.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
+import org.hibernate.annotations.Where;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
 @Entity
+@SQLDelete(sql = "UPDATE Usuario SET status = 'INATIVO' WHERE id = ?")
+@SQLRestriction("status <> 'INATIVO'")
 public class Usuario {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @NotBlank
+  @NotNull
+  @Length(max = 150)
   @Column(nullable = false, length = 150)
   private String nome;
 
+  @NotBlank
+  @NotNull
   @Column(nullable = false)
   private String email;
 
+  @NotBlank
+  @NotNull
+  @Length(max = 15)
   @Column(nullable = false, length = 15)
   private String senha;
 
+  @NotNull
   @Column(nullable = false)
   private Double saldo;
 
+  @NotNull
   @Column(nullable = false)
   private Date dtCriadoEm;
 
@@ -32,13 +51,19 @@ public class Usuario {
   @Column
   private Date dtDeletadoEm;
 
+  @NotNull
+  @Length(max = 10)
+  @Pattern(regexp = "ATIVO|INATIVO")
+  @Column(nullable = false, length = 10)
+  private String status = "ATIVO";
+
   public Usuario(){}
-  public Usuario(String nome, String email, String senha, Double saldo) {
+  public Usuario(String nome, String email, String senha, Double saldo, Date dtCriadoEm) {
     this.nome = nome;
     this.email = email;
     this.senha = senha;
     this.saldo = saldo;
-    this.dtCriadoEm = new Date();
+    this.dtCriadoEm = dtCriadoEm;
   }
 
   public Long getId() {
@@ -105,4 +130,11 @@ public class Usuario {
     this.dtDeletadoEm = dtDeletadoEm;
   }
 
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }
