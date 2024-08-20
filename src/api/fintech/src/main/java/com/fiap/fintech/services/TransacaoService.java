@@ -1,7 +1,9 @@
 package com.fiap.fintech.services;
 
 import com.fiap.fintech.repositories.TransacaoRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TransacaoService {
 
   private final TransacaoRepository transacaoRepository;

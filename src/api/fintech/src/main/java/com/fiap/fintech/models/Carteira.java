@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
+import org.hibernate.annotations.processing.SQL;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
@@ -18,30 +20,25 @@ public class Carteira {
   private Long id;
 
   @NotBlank
-  @NotNull
   @Length(max = 50)
   @Column(nullable = false, length = 50)
   private String nome;
 
   @NotBlank
-  @NotNull
   @Length(max = 50)
   @Column(nullable = false, length = 50)
   private String objetivo;
 
   @NotBlank
-  @NotNull
   @Length(max = 50)
   @Column(nullable = false, length = 50)
   private String tipo;
 
   @NotBlank
-  @NotNull
   @Length(max = 50)
   @Column(nullable = false, length = 50)
   private String bandeira;
 
-  @NotBlank
   @NotNull
   @Column(nullable = false)
   private Date dtCriadoEm;
@@ -59,12 +56,12 @@ public class Carteira {
   private String status = "ATIVO";
 
   public Carteira(){}
-  public Carteira(String nome, String objetivo, String tipo, String bandeira) {
+  public Carteira(String nome, String objetivo, String tipo, String bandeira, Date dtCriadoEm) {
     this.nome = nome;
     this.objetivo = objetivo;
     this.tipo = tipo;
     this.bandeira = bandeira;
-    this.dtCriadoEm = new Date();
+    this.dtCriadoEm = dtCriadoEm;
   }
 
   public Long getId() {

@@ -5,12 +5,14 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
 @Entity
 @SQLDelete(sql = "UPDATE Meta SET status = 'INATIVO' WHERE id = ?")
+@SQLRestriction("status <> 'INATIVO'")
 public class Meta {
 
   @Id
@@ -51,11 +53,11 @@ public class Meta {
   private String status = "ATIVO";
 
 
-  public Meta(String nome, Double valorAtual, Double valorMeta) {
+  public Meta(String nome, Double valorAtual, Double valorMeta, Date dtCriadoEm) {
     this.nome = nome;
     this.valorAtual = valorAtual;
     this.valorMeta = valorMeta;
-    this.dtCriadoEm = new Date();
+    this.dtCriadoEm = dtCriadoEm;
   }
 
   public Meta(){}
