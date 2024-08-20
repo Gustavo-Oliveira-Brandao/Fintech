@@ -44,11 +44,6 @@ public class CarteiraService {
   }
 
   public void delete(@NotNull @Positive Long id){
-    carteiraRepository.findById(id).map(recordFound -> {
-      recordFound.setDtDeletadoEm(new Date());
-      carteiraRepository.save(recordFound);
-      carteiraRepository.deleteById(id);
-      return recordFound;
-    }).orElseThrow(() -> new RecordNotFoundException(id));
+    carteiraRepository.delete(carteiraRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(id)));
   }
 }
